@@ -3,7 +3,7 @@ from django.db import models
 class Articles(models.Model):
     id_articles = models.AutoField(primary_key=True)
     title = models.CharField('Заголовок статьи', max_length=55)
-    description = models.TextField('Описание статьи')
+    description = models.TextField('Содержимое статьи')
     class Meta:
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"

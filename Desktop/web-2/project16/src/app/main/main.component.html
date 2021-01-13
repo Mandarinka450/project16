@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-12">
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+<app-addform-worker (addWorker)="onAddWorker($event)"></app-addform-worker>
+<div class="col-12">
+  <input type="text" class="form-control mb-2" placeholder="Найти сотрудника" [(ngModel)]="searchStr">
+</div>
+<app-table-workers 
+[title]="'IT-отдел'"
+[workers]="getByType(myWorkerType.programmer)"
+(deleteWorker)="onDeleteWorker($event)"
+(editWorker)="onEditWorker($event)"
+[searchStr]="searchStr"
+></app-table-workers>
+<app-table-workers 
+[title]="'Отдел продаж'"
+[workers]="getByType(myWorkerType. sales)"
+(deleteWorker)="onDeleteWorker($event)"
+(editWorker)="onEditWorker($event)"
+[searchStr]="searchStr"
+></app-table-workers>
+<app-table-workers 
+[title]="'Отдел доставки'"
+[workers]="getByType(myWorkerType.delivery)"
+(deleteWorker)="onDeleteWorker($event)"
+(editWorker)="onEditWorker($event)"
+[searchStr]="searchStr"
+></app-table-workers>
+<app-table-workers 
+[title]="'Юридический отдел'"
+[workers]="getByType(myWorkerType.lawyer)"
+(deleteWorker)="onDeleteWorker($event)"
+(editWorker)="onEditWorker($event)"
+[searchStr]="searchStr"
+></app-table-workers>
+</div>

@@ -1,0 +1,65 @@
+<form [formGroup]="myForm2">
+    <div class="d-none " [id]="id">
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Имя" 
+        formControlName="name"   
+        [(ngModel)]="name"/>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Фамилия" 
+        formControlName="surname" 
+        [(ngModel)]="surname" />
+        <input  
+        class="mb-2 form-control" 
+        type="text" 
+        placeholder="Отчество" 
+        formControlName="middlename" 
+        [(ngModel)]="middlename" />
+        <input 
+        class="mt-2 form-control" 
+        type="tel" 
+        placeholder="Телефон" 
+        formControlName="phone" 
+        [textMask]="{mask: mask}" 
+        [(ngModel)]="phone" />
+        <input  
+        class="mt-2 form-control" 
+        type="email"  
+        placeholder="Email" 
+        formControlName="email" 
+        [(ngModel)]="email" />
+        <input  
+        class="mt-2 form-control" 
+        type="text" 
+        placeholder="Дата рождения" 
+        formControlName="birthday" 
+        [(ngModel)]="birthday" />
+        <select formControlName="type" class="custom-select">
+            <option [ngValue]="myWorkerType.programmer" >IT отдел </option>
+            <option [ngValue]="myWorkerType.sales">Отдел продаж</option>
+            <option [ngValue]="myWorkerType.delivery">Отдел доставки</option>
+            <option [ngValue]="myWorkerType.lawyer">Юридический отдел</option>
+    </select>
+          <input type="hidden" [(ngModel)]="id" [ngModelOptions]="{standalone: true}" />
+          <button [disabled]="myForm2.controls['name'].invalid || myForm2.controls['surname'].invalid || myForm2.controls['middlename'].invalid ||  myForm2.controls['phone'].invalid || myForm2.controls['type'].invalid || myForm2.controls['birthday'].invalid || myForm2.controls['email'].invalid" class="btn btn-outline-primary btn-sm" (click)="onEditWorker()">Редактировать</button>
+          <button class="btn btn-outline-danger btn-sm" (click)="onDeleteWorker(id)">
+            Удалить
+          </button>
+        </div>
+        <div class="alert alert-danger" *ngIf="myForm2.controls['name'].invalid && myForm2.controls['name'].touched">Не указано имя!</div> 
+        <div class="alert alert-danger" *ngIf="myForm2.controls['surname'].invalid && myForm2.controls['surname'].touched">Не указана фамилия!</div> 
+        <div class="alert alert-danger" *ngIf="myForm2.controls['phone'].invalid && myForm2.controls['phone'].touched">Не указан телефон!</div> 
+        <div class="alert alert-danger" *ngIf="myForm2.controls['type'].invalid && myForm2.controls['type'].touched">Не указан отдел!</div> 
+        <div class="alert alert-danger" *ngIf="myForm2.controls['birthday'].invalid && myForm2.controls['birthday'].touched">Не указана дата рождения!</div> 
+        <div class="alert alert-danger" *ngIf="myForm2.controls['email'].invalid && myForm2.controls['email'].touched">Не указана почта!</div> 
+  </form>
+
+  
+               
+       
+
+  
+

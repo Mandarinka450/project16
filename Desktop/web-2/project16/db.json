@@ -1,0 +1,54 @@
+{
+  "workers": [
+    {
+      "id": 1,
+      "name": "Маша",
+      "surname": "Тихомирова",
+      "middlename": "Сергеевна",
+      "type": 0,
+      "phone": "+7 (968) 636-03-17",
+      "email": "mashak-pushka@mail.ru",
+      "birthday": "2001-10-18"
+    },
+    {
+      "id": 2,
+      "name": "Максим",
+      "surname": "Паскевич",
+      "middlename": "Александрович",
+      "type": 1,
+      "phone": "+7 (925) 495-26-72",
+      "email": "maksimka@mail.ru",
+      "birthday": "2000-10-06"
+    },
+    {
+      "id": 3,
+      "name": "Дарья",
+      "surname": "Ефимова",
+      "middlename": "Александровна",
+      "type": 2,
+      "phone": "+7 (952) 189-82-63",
+      "email": "yasdary@gmail.com",
+      "birthday": "2001-10-31"
+    },
+    {
+      "id": 4,
+      "name": "Антон",
+      "surname": "Крюков",
+      "middlename": "Владиславович",
+      "type": 3,
+      "phone": "+7 (969) 368-38-26",
+      "email": "antonka-love@mail.ru",
+      "birthday": "1998-03-29"
+    },
+    {
+      "id": 5,
+      "name": "Никита",
+      "surname": "Синскас",
+      "middlename": "Куприянович",
+      "type": 2,
+      "phone": "+7 (968) 266-89-68",
+      "email": "nikitkadurak@mail.ru",
+      "birthday": "1989-10-23"
+    }
+  ]
+}

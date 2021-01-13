@@ -1,0 +1,53 @@
+<ng-container *ngIf="workers.length > 0">
+  <div class="row">
+    <div class="col-12">
+      <h3>{{ title }}</h3>
+      <button  class="btn btn-outline-primary btn-sm" (click)='SortBirthday()'>Дата рождения</button>
+      <button  class="btn btn-outline-primary btn-sm" (click)='SortID()'>id</button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" [style.width]="'70px'">#</th>
+            <th scope="col" [style.width]="'10%'">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col" [style.width]="'100px'">Отчество</th>
+            <th scope="col" [style.width]="'150px'">Телефон</th>
+            <th scope="col">Email</th>
+            <th scope="col">День рождения</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let worker of workers | myfilter: searchStr |idfilt:sorting:direction">
+            <th scope="row">{{worker.id}}</th>
+            <td>{{worker.name}}</td>
+            <td>{{worker.surname}}</td>
+            <td>{{worker.middlename}}</td>
+            <td>{{worker.phone}}</td>
+            <td>{{worker.email}}</td>
+            <td>{{worker.birthday}}</td>
+            <td>
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click) ="onDeleteWorker(worker.id)"
+              >
+                Удалить
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-outline-success btn-sm" 
+              (click)="showForm(worker.id)">
+                Редактировать
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <app-change-workers *ngFor="let worker of workers"  (deleteWorkeredit)="onDeleteWorker($event)" (editWorker)="onEditWorker($event)" [id]="worker.id" [name]="worker.name" [surname]="worker.surname"  [middlename]="worker.middlename"  [type]="worker.type" [phone]="worker.phone" [birthday]="worker.birthday" [email]="worker.email"></app-change-workers>
+</ng-container>
+
+
+
+
+

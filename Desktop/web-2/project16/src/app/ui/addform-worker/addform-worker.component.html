@@ -1,0 +1,68 @@
+<form [formGroup]="myForm1">
+<div class="row mb-3">
+    <div class="col-12">
+        <h5>Добавить сотрудника</h5>
+    </div>
+    <div class="col-4">
+        <input type="text" 
+        class="form-control" 
+        formControlName="name"
+        placeholder="Имя"
+       >
+    </div>
+    <div class="col-4">
+        <input type="text" 
+        class="form-control" 
+        formControlName="surname"
+        placeholder="Фамилия"
+        >   
+    </div>
+    <div class="col-4">
+        <input type="text" 
+        class="form-control" 
+        formControlName="middlename"
+        placeholder="Отчество"
+        >  
+    </div>
+    <div class="col-4">
+        <input type="text" 
+        class="form-control" 
+        formControlName="phone"
+        placeholder="Телефон"
+        [textMask]="{mask: mask}"
+        >
+    </div>
+    <div class="col-4">
+        <input type="text" 
+        class="form-control" 
+        formControlName="email"
+        placeholder="Email"
+        >  
+    </div>
+    <div class="col-4">
+        <input type="text" 
+        class="form-control" 
+        formControlName="birthday"
+        placeholder="Дата рождения"
+        > 
+    </div>
+    <div class="col-2">
+        <select class="custom-select" formControlName="type" >
+            <option [ngValue]="myWorkerType.programmer">IT отдел</option>
+            <option [ngValue]="myWorkerType.sales">Отдел продаж</option>
+            <option [ngValue]="myWorkerType.delivery">Отдел доставки</option>
+            <option [ngValue]="myWorkerType.lawyer" >Юридический отдел</option>
+        </select>
+    </div>
+  <div class="col-12 mt-1">
+      <button class="btn btn-outline-primary btn-sm" [disabled]="myForm1.controls['name'].invalid ||  myForm1.controls['surname'].invalid ||  myForm1.controls['phone'].invalid ||  myForm1.controls['type'].invalid || myForm1.controls['birthday'].invalid || myForm1.controls['email'].invalid" 
+      (click)="onAddWorker()">Добавить</button>
+  </div>
+</div>
+ <div class="alert alert-danger" *ngIf="myForm1.controls['name'].invalid && myForm1.controls['name'].touched">Не указано имя!</div> 
+ <div class="alert alert-danger" *ngIf="myForm1.controls['surname'].invalid && myForm1.controls['surname'].touched">Не указана фамилия!</div> 
+ <div class="alert alert-danger" *ngIf="myForm1.controls['phone'].invalid && myForm1.controls['phone'].touched">Не указан телефон!</div> 
+ <div class="alert alert-danger" *ngIf="myForm1.controls['type'].invalid && myForm1.controls['type'].touched">Не указан отдел!</div> 
+ <div class="alert alert-danger" *ngIf="myForm1.controls['birthday'].invalid && myForm1.controls['birthday'].touched">Не указана дата рождения!</div> 
+ <div class="alert alert-danger" *ngIf="myForm1.controls['email'].invalid && myForm1.controls['email'].touched">Не указана почта!</div> 
+</form>

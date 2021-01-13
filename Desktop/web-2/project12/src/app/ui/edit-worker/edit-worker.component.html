@@ -1,0 +1,51 @@
+<div class="row mb-3" style="background-color: rgba(224, 197, 164);">
+    <div class="col-12">
+      <h5>Редактировать запись</h5>
+    </div>
+    <div class="col-4" >
+        <input style="margin: 5% 0%;"
+        required
+          type="number"
+          class="form-control"
+          placeholder="id сотрудника"
+          name="editid"
+          [(ngModel)]="editid"
+        />
+      </div>
+    <div class="col-4">
+      <input style="margin: 5% 0%;"
+      required
+        type="text"
+        class="form-control"
+        placeholder="Имя"
+        name="editname"
+        [(ngModel)]="editname"
+        ng-minlength="4" 
+        required
+      />
+    </div>
+    <div class="col-4">
+      <input style="margin: 5% 0%;"
+      required
+        type="text"
+        class="form-control"
+        placeholder="Фамилия"
+        name="editsurname"
+        [(ngModel)]="editsurname"
+        ng-minlength="4" 
+        required
+      />
+    </div>
+    <div class="col-4" style="margin: 1% 0%;">
+      <select class="custom-select" [(ngModel)]="type" required>
+        <option [ngValue]="myWorkerType.programmer">Программист</option>
+        <option [ngValue]="myWorkerType.designer">Дизайнер</option>
+        <option [ngValue]="myWorkerType.copywriter">Рекламщик</option>
+        <option [ngValue]="myWorkerType.manager">Менеджер</option>
+      </select>
+    </div>
+    <div class="col-12 mt-1" style="margin: 1% 0%;">
+      <button class="btn btn-outline-primary btn-sm" (click)="onEditWorker()">Редактировать</button>
+    </div>
+  </div>
+  <div id="danger" class="alert alert-danger" role="alert"></div>
